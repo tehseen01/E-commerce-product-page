@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+@import "./config";
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+picture,
+img {
+  width: 100%;
+  display: block;
+  height: auto;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+.desktopSize {
+  user-select: none;
+
+  @include desktop() {
+    .swiper-slide {
+      img {
+        border-radius: 10px;
+      }
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      display: none;
+    }
+
+    .mySwiper2 {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+.swiper-slide-thumb-active {
+  border-radius: 10px;
+  border: 2px solid $Orange;
+  img {
+    opacity: 0.3;
+  }
+}
+
+.swiper-slide-visible {
+  cursor: pointer;
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.hide {
+  display: none;
+  @include desktop() {
+    display: block;
+  }
+}
+
+.swiper-button-prev {
+  padding: 1.2rem 1.4rem 1.2rem 1.1rem;
+}
+
+.swiper-button-next {
+  padding: 1.2rem 1.1rem 1.2rem 1.4rem;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  background: $White;
+  border-radius: 50%;
+  // width: 2.5rem !important;
+  height: 2.5rem !important;
+}
+
+.swiper-button-prev::after {
+  content: url(../public/images/icon-previous.svg) !important;
+  font-size: 1rem !important;
+}
+.swiper-button-next::after {
+  content: url(../public/images/icon-next.svg) !important;
+  font-size: 1rem !important;
+}

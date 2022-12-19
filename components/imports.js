@@ -1,0 +1,17 @@
+export { default as logo } from "../public/images/logo.svg";
+export { default as menu } from "../public/images/icon-menu.svg";
+export { default as close } from "../public/images/icon-close.svg";
+export { default as delete } from "../public/images/icon-delete.svg";
+export { default as cart } from "../public/images/icon-cart.svg";
+export { default as minus } from "../public/images/icon-minus.svg";
+export { default as plus } from "../public/images/icon-plus.svg";
+export { default as previous } from "../public/images/icon-previous.svg";
+export { default as avatar } from "../public/images/image-avatar.png";
+export { default as pro1Thum } from "../public/images/image-product-1-thumbnail.jpg";
+export { default as pro1 } from "../public/images/image-product-1.jpg";
+export { default as pro2Thum } from "../public/images/image-product-2-thumbnail.jpg";
+export { default as pro2 } from "../public/images/image-product-2.jpg";
+export { default as pro3Thum } from "../public/images/image-product-3-thumbnail.jpg";
+export { default as pro3 } from "../public/images/image-product-3.jpg";
+export { default as pro4Thum } from "../public/images/image-product-4-Thumbnail.jpg";
+export { default as pro4 } from "../public/images/image-product-4.jpg";

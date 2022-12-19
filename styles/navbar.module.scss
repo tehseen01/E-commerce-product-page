@@ -1,0 +1,251 @@
+@import "/styles/config";
+
+.header {
+  @include flex-space-between();
+  position: relative;
+  padding: 1rem 2rem;
+  padding-left: 3.2rem;
+
+  @include desktop() {
+    display: grid;
+    grid-template-columns: 15% 1fr auto;
+    width: 85vw;
+    margin: auto;
+    padding: 2rem 0;
+    gap: 2rem;
+    border-bottom: 2px solid $Grayish-blue;
+  }
+
+  .logo {
+    width: 40%;
+    @include desktop() {
+      width: 100%;
+    }
+  }
+}
+
+.nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 0;
+  background: linear-gradient(90deg, $White 70%, hsla(0, 0%, 15%, 0.5) 70%);
+  visibility: hidden;
+  padding-top: 1.6rem;
+  padding-left: 1.5rem;
+  transition: $easeOut;
+  z-index: 9;
+
+  @include desktop() {
+    position: relative;
+    height: auto;
+    visibility: visible;
+    background: transparent;
+    padding: 0;
+    width: auto;
+  }
+
+  &.show {
+    visibility: visible;
+    width: 100%;
+  }
+
+  .menuBtn {
+    cursor: pointer;
+    visibility: visible;
+
+    @include desktop() {
+      display: none;
+    }
+
+    &.show {
+      .closeIcon {
+        display: block;
+      }
+      .menuIcon {
+        display: none;
+      }
+    }
+
+    img {
+      width: 1rem;
+    }
+
+    .closeIcon {
+      display: none;
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-weight: 700;
+    margin-top: 3rem;
+
+    @include desktop() {
+      flex-direction: row;
+      margin: 0;
+      color: $Dark-grayish-blue;
+      font-weight: 400;
+
+      li {
+        position: relative;
+
+        &:hover {
+          :after {
+            width: 100%;
+          }
+        }
+        :after {
+          content: "";
+          position: absolute;
+          bottom: -2.7rem;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 0;
+          transition: all 0.5s ease-in-out;
+          height: 4px;
+          border-radius: 5px;
+          background: $Orange;
+        }
+      }
+
+      a {
+        &:hover {
+          color: $Black;
+
+          li {
+            :after {
+              width: 2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.rightNav {
+  @include flex();
+  gap: 2rem;
+
+  .cartIcon {
+    color: $Dark-grayish-blue;
+    cursor: pointer;
+    position: relative;
+
+    .icon {
+      font-size: 1.4rem;
+    }
+
+    .dataCounter {
+      position: absolute;
+      top: -0.5rem;
+      padding: 0 0.5rem;
+      right: -0.3rem;
+      background-color: $Orange;
+      color: $White;
+      font-size: 0.6rem;
+      font-weight: 700;
+      border-radius: 20px;
+    }
+
+    &:hover {
+      color: $Black;
+    }
+  }
+
+  .avatar {
+    width: 2.5rem;
+    &:hover {
+      border: 2px solid $Orange;
+      border-radius: 50%;
+    }
+  }
+}
+
+.cart {
+  width: 340px;
+  height: 205px;
+  position: absolute;
+  border-radius: 10px;
+  top: 5rem;
+  right: 1rem;
+  z-index: 99;
+  background-color: $White;
+  visibility: hidden;
+  box-shadow: 0 10px 20px 0 $Grayish-blue;
+
+  @include desktop() {
+    right: -1rem;
+    top: 6rem;
+  }
+
+  h2 {
+    padding: 1rem;
+    border-bottom: 1px solid $Grayish-blue;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+
+  .cartEmpety {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100% - 59px);
+    font-weight: 700;
+  }
+
+  .cartItem {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: $Dark-grayish-blue;
+
+    .span {
+      font-weight: 700;
+      color: $Black;
+      font-size: 1.1rem;
+    }
+
+    button {
+      color: $Grayish-blue;
+      background-color: transparent;
+
+      &:hover {
+        color: $Orange;
+      }
+    }
+  }
+
+  .cartbox {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .checkoutBtn {
+    width: 100%;
+    background-color: $Orange;
+    padding: 1rem 0;
+    border-radius: 10px;
+    color: $White;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-top: 1rem;
+    cursor: pointer;
+  }
+
+  .itemThumb {
+    width: 3rem;
+    border-radius: 5px;
+  }
+
+  &.hidden {
+    visibility: visible;
+  }
+}
